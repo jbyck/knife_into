@@ -27,7 +27,7 @@ class Into < Chef::Knife
     unless name_args.size >= 1
       ui.fatal "Node name required"
       show_usage
-      exit 1
+      exit 
     end
     
     node_name = name_args.first    
@@ -36,7 +36,7 @@ class Into < Chef::Knife
     
     unless node.attribute?(:cloud) and node.cloud.attribute?(:public_ipv4)
       ui.fatal "Cannot extract remote data from node #{node_name}"
-      exit!
+      exit
     end
     
     public_ip = node.cloud.public_ipv4
